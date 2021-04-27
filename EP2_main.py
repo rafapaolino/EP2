@@ -1,3 +1,7 @@
+# import
+
+import random
+
 # definindo todas as funcoes
 
 def cria_baralho():
@@ -8,6 +12,7 @@ def cria_baralho():
         listar.append(str(i) + "♠")
         listar.append(str(i) + "♥")
         listar.append(str(i) + "♣")
+    random.shuffle(listar)
     return listar
 
 def extrai_naipe(carta):
@@ -58,8 +63,21 @@ def possui_movimentos_possiveis(baralho):
     return False
 
 
-########################
+##### outras funcoes #####
 
+def jogaroutra():
+    while True:
+        i = input("Comecar uma partida? (s/n): ")
+        if i == "s":
+            return True
+        if i == "n":
+            return False
+        else:
+            print("responda com s ou n")
+
+
+
+##########################################
 
 # bienvenidos
 
@@ -68,6 +86,39 @@ print("Neste jogo voce deve empilhar as cartas ate ter apenas uma pilha.")
 print("Voce pode empilhar uma carta em seu vizinho anterior, ou na carta 3 casa antes.")
 print("Para empilhar, ambas as cartas devem ter o mesmo naipe OU o mesmo valor.")
 
-def main():
-    dc = input("Comecar uma nova partida? (s/n) :")
+# jogo mesmo
+
+rodando = True
+while rodando:
+    if jogaroutra():
+        baralho = cria_baralho()
     
+
+def main(baralho):
+    ba = baralho
+    jogando = True
+    while jogando:
+        if len(ba) == 1:
+            print("Parabens, voce ganhou!")
+            return
+        if not possui_movimentos_possiveis(ba):
+            print("Acabaram os movimentos possiveis, voce perdeu :/")
+            return
+        i = 0
+        for c in ba:
+            print(str(i) + ". " + c)
+        cartavalida = False
+        while not cartavalida:
+            qcm = input("Qual carta deseja mover? (use o numero a equerda): ")
+            if qcm in range(len(ba)):
+                movpos = lista_movimentos_possiveis(ba, qcm)
+                if movpos == []:
+                    print("nao ha movimentos possiveis para esta carta")
+                else:
+                    cartavalida = True
+            else:
+                print("carta invalida")
+        movimentovalido = False
+        while not movimentovalido:
+            impmov = input("Colocar em 1 ou 3 cartas antes? (1/3): ")
+            if impmov in movpos
