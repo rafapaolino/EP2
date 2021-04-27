@@ -99,7 +99,7 @@ def main(baralho):
         for c in ba:
             print(str(i) + ". " + c)
             i += 1
-            time.sleep(0.01)
+            time.sleep(0.005)
         cartavalida = False
         while not cartavalida:
             qcm = input("Qual carta deseja mover? (use o numero a equerda): ")
@@ -133,10 +133,10 @@ def main(baralho):
 # bienvenidos
 
 print("Bem vindo ao paciência acordeão!")
-time.sleep(1)
+time.sleep(2)
 print("Neste jogo voce deve empilhar as cartas ate ter apenas uma pilha.")
 time.sleep(2.5)
-print("Voce pode empilhar uma carta em seu vizinho anterior, ou na carta 3 casa antes.")
+print("Voce pode empilhar uma carta em seu vizinho anterior, ou na carta 3 casas antes.")
 time.sleep(2.5)
 print("Para empilhar, ambas as cartas devem ter o mesmo naipe OU o mesmo valor.")
 time.sleep(2.5)
