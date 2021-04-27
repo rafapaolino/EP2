@@ -1,5 +1,4 @@
-#funcoes para o EP2 / coisas dos exercicios
-
+#funcoes dos exercicios na academia
 
 # devolve uma lista de cartas em um baralho
 

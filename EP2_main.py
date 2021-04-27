@@ -1,6 +1,7 @@
 # import
 
 import random
+import time
 
 # definindo todas as funcoes
 
@@ -75,25 +76,6 @@ def jogaroutra():
         else:
             print("responda com s ou n")
 
-
-
-##########################################
-
-# bienvenidos
-
-print("Bem vindo ao paciência acordeão!")
-print("Neste jogo voce deve empilhar as cartas ate ter apenas uma pilha.")
-print("Voce pode empilhar uma carta em seu vizinho anterior, ou na carta 3 casa antes.")
-print("Para empilhar, ambas as cartas devem ter o mesmo naipe OU o mesmo valor.")
-
-# jogo mesmo
-
-rodando = True
-while rodando:
-    if jogaroutra():
-        baralho = cria_baralho()
-    
-
 def main(baralho):
     ba = baralho
     jogando = True
@@ -120,5 +102,48 @@ def main(baralho):
                 print("carta invalida")
         movimentovalido = False
         while not movimentovalido:
-            impmov = input("Colocar em 1 ou 3 cartas antes? (1/3): ")
-            if impmov in movpos
+            impmov = input("Colocar na 1 ou 3 carta anterior? (1/3): ")
+            if impmov not in ["1", "3"]:
+                print("responda com 1 ou 3")
+            else:
+                intimpmov = int(impmov)
+                if intimpmov in movpos:
+                    destino = qcm - intimpmov
+                    movimentovalido = True
+                else:
+                    print("este movimento nao e possivel (tente o outro)")
+        empilha(ba, qcm, destino)
+
+
+##########################################
+
+# bienvenidos
+
+print("Bem vindo ao paciência acordeão!")
+time.sleep(2)
+print("Neste jogo voce deve empilhar as cartas ate ter apenas uma pilha.")
+time.sleep(2)
+print("Voce pode empilhar uma carta em seu vizinho anterior, ou na carta 3 casa antes.")
+time.sleep(2)
+print("Para empilhar, ambas as cartas devem ter o mesmo naipe OU o mesmo valor.")
+time.sleep(2)
+
+# jogo mesmo
+
+rodando = True
+while rodando:
+    if jogaroutra():
+        bara = cria_baralho()
+        main(bara)
+    else:
+        rodando = False
+
+# adios
+
+print("Espero que tenha gostado!")
+time.sleep(2)
+print("...")
+time.sleep(2)
+print("...")
+time.sleep(2)
+print("(e que tenha funcionado)")
