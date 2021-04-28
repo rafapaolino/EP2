@@ -2,6 +2,7 @@
 
 import random
 import time
+from termcolor import colored
 
 # definindo todas as funcoes
 
@@ -76,7 +77,6 @@ def jogaroutra():
         else:
             print("responda com s ou n")
 
-
 def podeserint(n):
     try: 
         int(n)
@@ -84,20 +84,22 @@ def podeserint(n):
     except ValueError:
         return False
 
-
 def main(baralho):
     ba = baralho
     jogando = True
     while jogando:
         if len(ba) == 1:
-            print("Parabens, voce ganhou!")
+            print(colored("Parabens, voce ganhou!", "green"))
             return
         if not possui_movimentos_possiveis(ba):
             print("Acabaram os movimentos possiveis, voce perdeu :/")
             return
         i = 0
         for c in ba:
-            print(str(i) + ". " + c)
+            if extrai_naipe(c) in ["♦", "♥"]:
+                print((str(i) + "- "), colored(c, "red"))
+            else:
+                print((str(i) + "- "), colored(c, "grey"))
             i += 1
             time.sleep(0.005)
         cartavalida = False
