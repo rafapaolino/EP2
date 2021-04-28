@@ -1,2 +1,2 @@
 # EP2
-Repositorio pro EP2 sla como funciona isso to confuso
+Repositorio para o EP2 / jogo de cartas
