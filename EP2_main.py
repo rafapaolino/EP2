@@ -1,7 +1,13 @@
-##### O PROGRAMA PRECISA DO MODULO "termcolor" , que eu nao sei ou nao consegui instalar dentro
-##### do proprio codigo
+##### O PROGRAMA PRECISA DO MODULO "termcolor" instalado , que nao esta incluido no conda
 
-# import
+#INSTALANDO termcolor (nao sei se funciona, essa parte eu peguei na internet)
+
+import sys
+import subprocess
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
+'termcolor'])
+
+# imports
 
 import random
 import time
