@@ -1,3 +1,6 @@
+##### O PROGRAMA PRECISA DO MODULO "termcolor" , que eu nao sei ou nao consegui instalar dentro
+##### do proprio codigo
+
 # import
 
 import random
